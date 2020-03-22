@@ -19,7 +19,7 @@ float hum;
 float pres;
 float alti;
 
-const int DispDelay = 4000; 
+const int DispDelay = 5000; 
 const int sensorWaitting = 60;
 
 int inputPin = 8;
