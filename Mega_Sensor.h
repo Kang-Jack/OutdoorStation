@@ -22,13 +22,13 @@ bool handleBME280(bool isWorking) {
   //Serial.println(isWorking);
   if(isWorking)
   {
-    Serial.println("read temp");
+    //Serial.println("read temp");
     temp = bme.readTemperature();  // Get Temperature value
     hum = bme.readHumidity();  // Get Humidity value
     //dtostrf(temp, 4, 2, str_temp);
     pres = bme.readPressure() / 100.0F;
     alti = bme.readAltitude(SEALEVELPRESSURE_HPA);
-    Serial.println("read temp done");
+    //Serial.println("read temp done");
     return true;
   }
   return false;
@@ -36,6 +36,6 @@ bool handleBME280(bool isWorking) {
 
 void readInput(){
   if(reading==LOW){
-     // reading = digitalRead(inputPin);
+     reading = digitalRead(inputPin);
   }
 }

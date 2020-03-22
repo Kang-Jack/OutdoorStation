@@ -110,7 +110,7 @@ void setupPMS5003S() {
     delay(500);
     isWake = true;
     WakeMins = 0;
-    Serial.println("setup dust");
+    //Serial.println("setup dust");
 }
 
 void wake() {
@@ -138,18 +138,16 @@ bool handlePMS5003S() {
         }
         pmsAto2_5 = pms.getPmAto(2.5);
         pmsAto10 = pms.getPmAto(10.0);
-        Serial.println(pmsAto2_5);
-        Serial.println(pmsAto10);
+        //Serial.println(pmsAto2_5);
+        //Serial.println(pmsAto10);
         aqi2_5 = us_pm2_5_aqi_caculator(pmsAto2_5);
         aqi10 = us_pm10_aqi_caculator(pmsAto10);
-        Serial.println(aqi2_5);
-        Serial.println(aqi10);
-        Serial.println("caculator done");
+        //Serial.println(aqi2_5);
+        //Serial.println(aqi10);
+        //Serial.println("caculator done");
         return true;
     }
-    else
-    {
-        Serial.println("SLEEP");
+    else{//Serial.println("SLEEP");
         return false;
     }
     

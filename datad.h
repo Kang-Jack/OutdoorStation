@@ -20,7 +20,7 @@ float pres;
 float alti;
 
 const int DispDelay = 4000; 
-const int pinSDA = 4;
-const int pinSCL = 5;
+const int sensorWaitting = 60;
+
 int inputPin = 8;
-int reading = LOW;
+int reading = HIGH;
