@@ -8,6 +8,7 @@ int ripVal = LOW;                    // variable for reading the pin status
 
 bool setupSensor() {
   bool status;
+  pinMode(ripPin, INPUT);
   pinMode(inputPin, INPUT);
   status = bme.begin(0x76);
   if (!status) {
@@ -36,6 +37,16 @@ bool handleBME280(bool isWorking) {
 
 void readInput(){
   if(reading==LOW){
-     reading = digitalRead(inputPin);
+     reading = digitalRead(ripPin);
+     Serial.println("rip");
+     Serial.println(reading);
+  }
+  if (digitalRead(inputPin)==LOW)
+  {
+    if(isLightOn)
+      isLightOn=false;
+    else
+      isLightOn=true;
+    
   }
 }

@@ -51,12 +51,15 @@ void loop(void){
     {
       //Serial.println("LCD bme");
       readInput();
+      checkLight();
       lcdBMEInfo(true);
       delay(500);
     }
-    readInput();
-    //Serial.println("LCD PMS");
+
     if(isHandlePMS){
+      readInput();
+      //Serial.println("LCD PMS");
+      checkLight();
       lcdPMSInfo(true);
       delay(500);    
     }
@@ -66,11 +69,14 @@ void loop(void){
   {   
     sleep();
     readInput();
+    checkLight();
     delay(500);  
+
     lcdPMSInfo(false);
     if(bmeStatus)
     { 
       readInput();
+      checkLight();
       delay(500); 
       lcdBMEInfo(false);
     }

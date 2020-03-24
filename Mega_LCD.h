@@ -1,7 +1,7 @@
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x3f, 20, 4);  // set the LCD address to 0x3f for a 16 chars and 2 line display
-bool lightStatus = false;
+bool lightStatus = true;
 bool cmdLight = true;
 char emptyLine[40] = "                    ";
 void lcdCleanLine(int row) {
@@ -118,11 +118,24 @@ void lcdStartScreen()
     lcd.print(line3);
     delay(DispDelay);
 }
+void checkLight(){
+    if((!lightStatus)&&isLightOn){
+        lcd.backlight();
+        lightStatus=true;
+        Serial.println("Light On");
+    }
+    if((!isLightOn)&&lightStatus){
+        lcd.noBacklight();
+        lightStatus=false;
+        Serial.println("Light Off");
+    }
+}
 
 void setupLcd() {
     lcd.init();
     lcd.noAutoscroll();
     lcd.backlight();
+    lightStatus=true;
     lcdStartScreen();
     delay(2000);
     lcd.clear();

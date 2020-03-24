@@ -22,5 +22,8 @@ float alti;
 const int DispDelay = 5000; 
 const int sensorWaitting = 60;
 
-int inputPin = 8;
+int ripPin = 8;
 int reading = HIGH;
+
+int inputPin = 9;
+bool isLightOn=true;
